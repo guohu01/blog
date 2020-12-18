@@ -11,10 +11,10 @@
               <router-link to="#"></router-link>首页
             </el-menu-item>
             <el-menu-item index="3">
-              <router-link to="#"></router-link>分类
+              <router-link to="#"></router-link>归档
             </el-menu-item>
             <el-menu-item index="4">
-              <router-link to="#"></router-link>标签
+              <router-link to="#"></router-link>我的
             </el-menu-item>
             <el-menu-item index="" style="float: right;">
               <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
@@ -60,7 +60,12 @@
       };
     },
     mounted() {
+      this.classifys =  ['全部','后端','前端']
       window.addEventListener("scroll", this.roll)
+      console.log(this.classifys)
+    },
+    created(){
+      console.log("1")
     },
     methods: {
       handleSelect(key, keyPath) {
@@ -95,7 +100,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .is-active {
     /* border-bottom: ; */
     border-bottom: 2px solid transparent !important;

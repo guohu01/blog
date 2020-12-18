@@ -16,7 +16,6 @@ html{
 }
 body{
   margin: 0;
-  margin-top: 121px;
   margin-bottom: 100px;
 }
 </style>

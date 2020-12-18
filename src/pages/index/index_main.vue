@@ -70,8 +70,8 @@
                 </li>
               </ul>
             </div>
-            <div class="content_right"><!-- vertical-align: middle;display: table-cell; -->
-              <img :src="item.imageSrc" alt="..." style="vertical-align: middle;">
+            <div class="content_right">
+              <img v-if="item.imageSrc.length!=0" :src="item.imageSrc" alt="..." style="vertical-align: middle;width: 60px;height: 60px;">
             </div>
           </div>
 
@@ -83,10 +83,6 @@
         <p class="p_title" style="padding: 10px 15px;">标签</p>
         <div style="padding: 15px;">
           <!-- <el-tag>标签1</el-tag>
-          <el-tag>标签2</el-tag>
-          <el-tag>标签3</el-tag>
-          <el-tag>标签4</el-tag>
-          <el-tag>标签1</el-tag>
           <el-tag>标签2</el-tag>
           <el-tag>标签3</el-tag> -->
           <el-tag v-for="item in label">{{item}}</el-tag>
@@ -106,8 +102,8 @@
           {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/60/60'},
           {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/60/60'},
           {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/60/60'},
-          {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/60/60'},
-          {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/60/60'},
+          {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'18',imageSrc:'https://picsum.photos/id/1001/60/60'},
+          {username:'username',releaseTime:'7天前',label:'Vue.js',articleTitle:'分享8个非常实用的Vue自定义指令',zanCount:'22',commentCount:'14',imageSrc:'https://picsum.photos/id/1001/120/120'},
         ]
       }
     },
