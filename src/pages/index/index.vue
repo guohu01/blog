@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="index_content">
     <Index_top></Index_top>
     <div class="main">
       <el-row>
@@ -28,8 +28,8 @@
   }
 </script>
 
-<style>
-  body{
+<style scoped>
+  .index_content{
     margin-top: 121px;
   }
 </style>

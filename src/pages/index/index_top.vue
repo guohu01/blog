@@ -14,7 +14,7 @@
               <router-link to="#"></router-link>归档
             </el-menu-item>
             <el-menu-item index="4">
-              <router-link to="#"></router-link>我的
+              <router-link to="#"></router-link>关于我
             </el-menu-item>
             <el-menu-item index="" style="float: right;">
               <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
@@ -32,11 +32,6 @@
         </el-col>
       </el-row>
     </div>
-    <!-- <el-row>
-      <el-col style="width: 300px;height: 1200px;border: 1px red solid;">
-
-      </el-col>
-    </el-row> -->
   </div>
 </template>
 
@@ -60,12 +55,9 @@
       };
     },
     mounted() {
-      this.classifys =  ['全部','后端','前端']
+      // this.classifys =  ['全部','后端','前端']
       window.addEventListener("scroll", this.roll)
-      console.log(this.classifys)
-    },
-    created(){
-      console.log("1")
+      // console.log(this.classifys)
     },
     methods: {
       handleSelect(key, keyPath) {
@@ -93,9 +85,11 @@
         } else {
           top.classList.add("showed");
         }
-        // console.log("--------------" + scrollY)
-        // console.log("=====" + this.winHeight)
       }
+    },
+    destroyed() {
+      console.log('index_top页面滚动被销毁')
+      window.removeEventListener("scroll",this.roll)
     }
   }
 </script>

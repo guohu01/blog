@@ -1,5 +1,5 @@
 <template>
-  <div id="navbar">
+  <div id="head">
     <el-row style="border-bottom: 1px #eee solid;background-color: #fff;">
       <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}">
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
   export default {
     data() {
       return {
@@ -47,11 +47,11 @@
       };
     },
     mounted() {
-      window.addEventListener("scroll", this.roll)
+      window.addEventListener("scroll", this.roll);
     },
     methods: {
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        // console.log(key, keyPath);
       },
       /* 分类active绑定*/
       getItem(index) {
@@ -59,7 +59,8 @@
       },
       /* 监听鼠标滚动上下滑动事件*/
       roll(e) {
-        var top = document.getElementById("navbar")
+        console.log('执行中');
+        var top = document.getElementById("head")
         var scrollY = window.scrollY;
         // console.log(scrollY)
         if ((scrollY - 60) > this.winHeight) {
@@ -76,26 +77,30 @@
           top.classList.add("showed");
         }
       }
+    },
+    destroyed() {
+      window.removeEventListener("scroll",this.roll);
+      console.log('head页面滚动事件被销毁');
     }
   }
 </script>
 
-<style>
+<style scoped>
   .is-active {
     /* border-bottom: ; */
     border-bottom: 2px solid transparent !important;
     color: #00B5AD !important;
   }
 
-  #navbar>div>div>ul>li:first-child {
+  #head>div>div>ul>li:first-child {
     color: #00B5AD;
   }
 
-  #navbar>div>div>ul>li {
+  #head>div>div>ul>li {
     font-size: 16px;
   }
 
-  #navbar>div>div>ul>li:hover {
+  #head>div>div>ul>li:hover {
     color: #00B5AD !important;
   }
 
@@ -104,7 +109,7 @@
   }
 
   /*导航栏滑动样式*/
-  #navbar {
+  #head {
     position: fixed;
     top: 0;
     width: 100%;

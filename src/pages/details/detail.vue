@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="detail_content">
     <Head></Head>
     <div class="main">
       <el-row>
@@ -26,8 +26,8 @@
   }
 </script>
 
-<style>
-  body{
-    margin-top: 81px;
+<style scoped>
+  .detail_content{
+	  margin-top: 81px;
   }
 </style>
