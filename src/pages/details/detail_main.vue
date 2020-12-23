@@ -76,7 +76,7 @@
 </template>
 
 <script>
-  import ArticleComment from '../main/ArticleComment.vue'
+  // import ArticleComment from '../main/ArticleComment.vue'
   import * as CommentData from '../../public/js/mockdata'
   import Comment from '../main/comment.vue'
 
@@ -92,7 +92,7 @@
       this.commentData = CommentData.comment.data;
     },
     components: {
-      ArticleComment,
+      // ArticleComment,
       Comment
     },
   }

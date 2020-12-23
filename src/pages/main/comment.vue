@@ -1,10 +1,15 @@
 <!--评论模块-->
 <template>
   <div class="container">
-    <div class="write-reply">
-      <i class="el-icon-edit"></i>
-      <span class="add-comment">添加新评论</span>
+    <div class="comment">
+      <div class="reply">
+        <div class="write-reply">
+          <i class="el-icon-edit"></i>
+          <span class="add-comment">添加新评论</span>
+        </div>
+      </div>
     </div>
+
     <div class="comment" v-for="item in comments">
       <div class="info">
         <img class="avatar" :src="item.fromAvatar" width="36" height="36" />

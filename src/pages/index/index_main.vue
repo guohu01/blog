@@ -78,7 +78,7 @@
         </div>
       </div>
     </el-col>
-    <el-col :md="{span:6}">
+    <el-col class="index_right" :md="{span:6}">
       <div style="background-color: #fff;">
         <p class="p_title" style="padding: 10px 15px;">标签</p>
         <div style="padding: 15px;">
@@ -107,6 +107,11 @@
         ]
       }
     },
+    mounted() {
+    },
+    methods:{
+
+    }
   }
 </script>
 

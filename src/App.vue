@@ -1,15 +1,19 @@
 <template>
   <div id="app">
+    <Index_top></Index_top>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import Index_top from './pages/index/Index_top.vue';
+  export default {
+    name: 'App',
+    components:{
+      Index_top
+    }
+  }
 </script>
-
 <style>
 html{
     background-color: #f5f5f5;
