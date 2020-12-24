@@ -3,24 +3,7 @@
     <div id="top">
       <el-row id="navbar" style="border-bottom: 1px #eee solid;background-color: #fff;">
         <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}">
-          <!-- <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
-            <el-menu-item>
-              <h3 style="display: inline-block;margin: 0;">blog</h3>
-            </el-menu-item>
-            <el-menu-item index="1">
-              <router-link to="#"></router-link>首页
-            </el-menu-item>
-            <el-menu-item index="2">
-              <router-link to="#" style="text-decoration: none;"></router-link>归档
-            </el-menu-item>
-            <el-menu-item index="3">
-              <router-link to="#"></router-link>关于我
-            </el-menu-item>
-            <el-menu-item index="" style="float: right;">
-              <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
-            </el-menu-item>
-          </el-menu> -->
-          <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
+          <el-menu :default-active="this.$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
             <el-menu-item>
               <h3 style="display: inline-block;margin: 0;">blog</h3>
             </el-menu-item>
@@ -30,8 +13,8 @@
             <el-menu-item index="/Archives">
               归档
             </el-menu-item>
-            <el-menu-item index="/Detail">
-              关于我
+            <el-menu-item index="/Me">
+              关于我 
             </el-menu-item>
             <el-menu-item index="" style="float: right;">
               <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
@@ -40,7 +23,7 @@
           </el-menu>
         </el-col>
       </el-row>
-      <el-row class="classify" style="display: none;">
+      <el-row class="classify" style="">
         <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}" @n_active();>
           <a href="#" :class="activeClass == index ? 'u_active':''" v-for="(item,index) in classifys" :key="index"
             @click="getItem(index)">
@@ -71,10 +54,15 @@
         }
       };
     },
+    props:{
+      msg: {
+        type: String,
+        default: ''
+      }
+    },
     mounted() {
       // this.classifys =  ['全部','后端','前端']
       window.addEventListener("scroll", this.roll)
-      // console.log(this.classifys)
     },
     methods: {
       /* linkbtn(key){
@@ -83,8 +71,6 @@
       }, */
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
-        this.activeIndex = key;
-        console.log("-----"+this.activeIndex)
       },
       /* 分类active绑定*/
       getItem(index) {

@@ -6,15 +6,22 @@
         <!-- 文章展示部分-->
       </div>
       <div v-for="tableData in tableDatas" class="year">
-        <h2>2019</h2>
-        <div>
+        <h2>{{tableData.year}}</h2>
+        <div style="background-color: #fff;" v-for="item in tableData.tableData">
+          <a href="#" style="display: flex;justify-content: space-between;align-items: center;border: 1px #d solid;padding: 5px 10px;text-decoration: none;color: #000000;">
+            <div>{{item.data}}</div><el-tag>{{item.time}}</el-tag>
+          </a>
+
+        </div>
+
+        <!-- <div>
           <el-table :show-header=false :data="tableData" style="width: 100%">
             <el-table-column prop="date">
             </el-table-column>
             <el-table-column prop="time">
             </el-table-column>
           </el-table>
-        </div>
+        </div> -->
       </div>
     </el-col>
   </el-row>
@@ -24,21 +31,76 @@
   export default {
     data() {
       return {
-        tableDatas: {
+        tableDatas:[{
+          year: '2019',
           tableData: [{
-            date: '关于刻意练习的清单',
-            time: '10月02',
-          }, {
-            date: '失败要趁早',
-            time: '10月03',
-          }, {
-            date: '你理解什么是财务自由吗',
-            time: '11月22',
-          }, {
-            date: '用户故事',
-            time: '12月06',
-          }]
-        }
+              data: '关于刻意练习的清单',
+              time: '10月02',
+            },
+            {
+              data: '失败要趁早',
+              time: '10月03',
+            },
+            {
+              data: '你理解什么是财务自由吗',
+              time: '11月22',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            }
+          ]
+        },{
+          year: '2020',
+          tableData: [{
+              data: '关于刻意练习的清单',
+              time: '10月02',
+            },
+            {
+              data: '失败要趁早',
+              time: '10月03',
+            },
+            {
+              data: '你理解什么是财务自由吗',
+              time: '11月22',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            }
+          ]
+        },{
+          year: '2021',
+          tableData: [{
+              data: '关于刻意练习的清单',
+              time: '10月02',
+            },
+            {
+              data: '失败要趁早',
+              time: '10月03',
+            },
+            {
+              data: '你理解什么是财务自由吗',
+              time: '11月22',
+            },
+            {
+              data: '用户故事',
+              time: '12月06',
+            }
+          ]
+        }]
 
       }
     },
@@ -61,7 +123,8 @@
     h2 {
       text-align: center;
     }
-    tr>td:last-child{
+
+    tr>td:last-child {
       text-align: right;
     }
   }

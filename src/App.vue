@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Index_top></Index_top>
+    <!-- <Index_top :msg="msg"></Index_top> -->
     <router-view/>
   </div>
 </template>
@@ -8,9 +8,20 @@
 <script>
   import Index_top from './pages/index/Index_top.vue';
   export default {
+    data() {
+      return {
+        msg: ""
+      }
+    },
     name: 'App',
     components:{
       Index_top
+    },
+    methods:{
+      parent(data){
+        this.msg = data;
+        console.log("App-------"+this.msg)
+      }
     }
   }
 </script>

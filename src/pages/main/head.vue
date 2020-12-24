@@ -2,18 +2,18 @@
   <div id="head">
     <el-row style="border-bottom: 1px #eee solid;background-color: #fff;">
       <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}">
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
+        <el-menu :default-active="this.$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
           <el-menu-item>
             <h3 style="display: inline-block;margin: 0;">blog</h3>
           </el-menu-item>
-          <el-menu-item index="1">
-            <router-link to="#"></router-link>首页
+          <el-menu-item index="/">
+            首页
           </el-menu-item>
-          <el-menu-item index="3">
-            <router-link to="#"></router-link>归档
+          <el-menu-item index="/Archives">
+            归档
           </el-menu-item>
-          <el-menu-item index="4">
-            <router-link to="#"></router-link>我的
+          <el-menu-item index="/Me">
+            关于我
           </el-menu-item>
           <el-menu-item index="" style="float: right;">
             <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
@@ -22,14 +22,6 @@
         </el-menu>
       </el-col>
     </el-row>
-    <!-- <el-row class="classify">
-        <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}" @n_active();>
-          <a href="#" :class="activeClass == index ? 'u_active':''" v-for="(item,index) in classifys" :key="index"
-            @click="getItem(index)">
-            {{item}}
-          </a>
-        </el-col>
-      </el-row> -->
   </div>
 </template>
 
@@ -37,7 +29,7 @@
   export default {
     data() {
       return {
-        activeIndex: '1',
+        activeIndex: '/',
 
         winHeight: 0,
         /* 导航栏返回值*/
@@ -59,7 +51,7 @@
       },
       /* 监听鼠标滚动上下滑动事件*/
       roll(e) {
-        console.log('执行中');
+        console.log('滚动');
         var top = document.getElementById("head")
         var scrollY = window.scrollY;
         // console.log(scrollY)
@@ -79,8 +71,8 @@
       }
     },
     destroyed() {
+      //销毁页面滚动事件
       window.removeEventListener("scroll",this.roll);
-      console.log('head页面滚动事件被销毁');
     }
   }
 </script>
