@@ -32,5 +32,6 @@
 <style scoped>
   .archives_content{
 	  margin-top: 81px;
+    margin-bottom: 100px;
   }
 </style>

@@ -29,5 +29,6 @@
 <style scoped>
   .detail_content{
 	  margin-top: 81px;
+    margin-bottom: 100px;
   }
 </style>

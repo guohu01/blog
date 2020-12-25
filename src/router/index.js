@@ -5,6 +5,7 @@ import Index from '@/pages/index/index'
 import Detail from '@/pages/details/detail'
 import Archives from '@/pages/archives/archives'
 import Me from '@/pages/me/me'
+import blogManage from '@/pages/manage/blogManage'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/Me',
       name: 'Me',
       component: Me
+    },
+    {
+      path: '/blogManage',
+      name: 'blogManage',
+      component: blogManage
     }
   ]
 })

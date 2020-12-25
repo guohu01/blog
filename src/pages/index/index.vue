@@ -31,5 +31,6 @@
 <style scoped>
   .index_content{
     margin-top: 121px;
+    margin-bottom: 100px;
   }
 </style>

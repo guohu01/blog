@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <Index_top :msg="msg"></Index_top> -->
     <router-view/>
   </div>
 </template>
@@ -26,11 +25,14 @@
   }
 </script>
 <style>
-html{
-    background-color: #f5f5f5;
-}
 body{
   margin: 0;
-  margin-bottom: 100px;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 100%;
 }
+/* #app{
+  margin: 0;
+  margin-bottom: 100px;
+} */
 </style>
