@@ -7,7 +7,19 @@ import Archives from '@/pages/archives/archives'
 import Me from '@/pages/me/me'
 import blogManage from '@/pages/manage/blogManage'
 
+import index from '@/pages/manage/index'
+import demo from '@/pages/manage/demo'
+import nav from '@/pages/manage/nav'
+import chooseone from '@/pages/manage/chooseone'
+import choosetwo from '@/pages/manage/choosetwo'
+import time from '@/pages/manage/time'
+
 Vue.use(Router)
+//解决同一个路由被多次添加
+const VueRouterPush = Router.prototype.push
+Router.prototype.push = function push (to) {
+    return VueRouterPush.call(this, to).catch(err => err)
+}
 
 export default new Router({
   routes: [
@@ -35,6 +47,37 @@ export default new Router({
       path: '/blogManage',
       name: 'blogManage',
       component: blogManage
-    }
+    },
+    /* {
+      path: '/nav',
+      name: 'nav',
+      component: nav
+    }, */
+    {
+      path: '/admin/',
+      name: 'nav',
+      component: nav,
+      redirect:'/admin/index',
+     children:[{
+        path: '/admin/index',
+        name: 'index',
+        component: index
+      },
+      {
+        path: '/admin/demo',
+        name: 'demo',
+        component: demo
+      },
+      {
+        path: '/admin/chooseone',
+        name: 'chooseone',
+        component: chooseone
+      },
+      {
+        path: '/admin/choosetwo',
+        name: 'choosetwo',
+        component: choosetwo
+      }]
+    },
   ]
 })
