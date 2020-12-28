@@ -43,12 +43,15 @@
               <span class="el-icon-refresh-right"></span>
             </button>
           </div>
-          <div style="display:flex">
+          <div style="display:flex;">
             <!-- <button class="handup" @click="refresh">
             <span class="el-icon-refresh-right"></span>
             </button>-->
             <!-- 时间显示 -->
             <Time class style="margin: 0;margin-right: 20px;"></Time>
+            <div style="margin: auto 0;">
+              <el-button type="primary" size="small">写文章</el-button>
+            </div>
             <!-- 登陆人员 -->
             <el-dropdown>
               <el-button type="primary" class="person">
@@ -150,7 +153,7 @@
               {
                 title: "分类/标签",
                 name: "2-3",
-                path: "/admin/choosetwo",
+                path: "/admin/choosethree",
                 close: true,
                 class: "iconfont icon-fenlei-copy"
               }
@@ -351,6 +354,7 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
+    z-index: 99;
   }
 
   .aa {
@@ -368,6 +372,7 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
+    z-index: 99;
   }
 
   .person {

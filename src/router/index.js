@@ -12,6 +12,7 @@ import demo from '@/pages/manage/demo'
 import nav from '@/pages/manage/nav'
 import chooseone from '@/pages/manage/chooseone'
 import choosetwo from '@/pages/manage/choosetwo'
+import choosethree from '@/pages/manage/choosethree'
 import time from '@/pages/manage/time'
 
 Vue.use(Router)
@@ -77,6 +78,11 @@ export default new Router({
         path: '/admin/choosetwo',
         name: 'choosetwo',
         component: choosetwo
+      },
+      {
+        path: '/admin/choosethree',
+        name: 'choosethree',
+        component: choosethree
       }]
     },
   ]
