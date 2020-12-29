@@ -3,7 +3,8 @@
     <div id="top">
       <el-row id="navbar" style="border-bottom: 1px #eee solid;background-color: #fff;">
         <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}">
-          <el-menu :default-active="this.$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect" style="border: none;">
+          <el-menu :default-active="this.$route.path" router class="el-menu-demo" mode="horizontal" @select="handleSelect"
+            style="border: none;">
             <el-menu-item>
               <h3 style="display: inline-block;margin: 0;">blog</h3>
             </el-menu-item>
@@ -14,21 +15,33 @@
               归档
             </el-menu-item>
             <el-menu-item index="/Me">
-              关于我 
+              关于我
             </el-menu-item>
             <el-menu-item index="" style="float: right;">
-              <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small" style="background-color: #fff;width: 80%;"></el-input>
+              <el-input v-model="navbarForm.search" placeholder="请输入搜索标签" suffix-icon="el-icon-search" size="small"
+                style="background-color: #fff;width: 80%;"></el-input>
             </el-menu-item>
 
           </el-menu>
         </el-col>
       </el-row>
-      <el-row class="classify" style="">
-        <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}" @n_active();>
+      <!-- <el-row class="classify" style="">
+        <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}"
+          @n_active();>
           <a href="#" :class="activeClass == index ? 'u_active':''" v-for="(item,index) in classifys" :key="index"
             @click="getItem(index)">
             {{item}}
           </a>
+        </el-col>
+      </el-row> -->
+
+      <el-row class="classify" style="">
+        <el-col :xl="{span:14,push:5}" :lg="{span:16,push:4}" :md="{span:18,push:3}" :sm="{span:20,push:2}">
+          <a href="#" :class="activeClass == -1 ? 'u_active':''" @click="getItem(-1)">推荐</a>
+          <el-popover placement="bottom-start" width="350" trigger="hover" v-for="(type,index) in classifys">
+            <a href="#" v-for="(val,ind) in type.tags"><el-tag>{{val}}</el-tag></a>
+            <a href="#" :class="activeClass == index ? 'u_active':''" :key="index" @click="getItem(index)" slot="reference">{{type.classify}}</a>
+          </el-popover>
         </el-col>
       </el-row>
     </div>
@@ -40,13 +53,22 @@
     data() {
       return {
         activeIndex: '/',
-        /* classifys: {
-          a: '全部',
-          b: '后端',
-          c: '前端'
-        }, */
-        classifys: ['全部','后端','前端'],
-        activeClass: 0,
+        // classifys: ['全部', '后端', '前端'],
+        classifys: [
+          {
+            classify: '后端',
+            tags: ['Spring','Redis','Mybatis','Spring','Redis','Mybatis','Spring','Redis','Mybatis','Spring','Redis','Mybatis']
+          },
+          {
+            classify: '前端',
+            tags: ['Vue','HTML','Node']
+          },
+          {
+            classify: '数据库',
+            tags: ['MySQL','Redis','Oracle']
+          }
+        ],
+        activeClass: -1,
         winHeight: 0,
         /* 导航栏返回值*/
         navbarForm: {
@@ -54,7 +76,7 @@
         }
       };
     },
-    props:{
+    props: {
       msg: {
         type: String,
         default: ''
@@ -98,7 +120,7 @@
     },
     destroyed() {
       console.log('index_top页面滚动被销毁')
-      window.removeEventListener("scroll",this.roll)
+      window.removeEventListener("scroll", this.roll)
     }
   }
 </script>
@@ -134,13 +156,14 @@
     font-size: 14px;
   }
 
-  .classify>div>a {
+  .classify>div a {
     text-decoration: none;
     padding: 0 5px;
     color: #777;
+    -webkit-tap-highlight-color: transparent; outline: none;
   }
 
-  .classify>div>a:hover {
+  .classify>div a:hover {
     color: #00B5AD;
   }
 

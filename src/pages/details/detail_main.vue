@@ -98,9 +98,9 @@
   }
 </script>
 
-<style>
+<style scoped>
   .detail_main_content {
-    background-color: #fff;
+    background-color: #fff !important;
     /* padding: 10px 15px; */
   }
 

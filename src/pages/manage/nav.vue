@@ -50,7 +50,7 @@
             <!-- 时间显示 -->
             <Time class style="margin: 0;margin-right: 20px;"></Time>
             <div style="margin: auto 0;">
-              <el-button type="primary" size="small">写文章</el-button>
+              <el-button type="primary" size="small" @click="gotoPage('/admin/release')">写文章</el-button>
             </div>
             <!-- 登陆人员 -->
             <el-dropdown>
@@ -317,6 +317,9 @@
         }];
         this.editableTabsValue = "2";
         this.active = "2";
+      },
+      gotoPage(path){
+        this.$router.push(path);
       }
     }
   };
